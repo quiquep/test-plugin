@@ -48,7 +48,7 @@ if ( !class_exists ( 'TestPlugin' ) ) {
 		 */
 		static function dispatcher () {
 			// Log caller debug info
-			Grabpress::log ();
+			TestPlugin::log ();
 		
 			// If request does not contain an action
 			if ( !isset ( $_REQUEST['action'] ) ) {
@@ -59,7 +59,7 @@ if ( !class_exists ( 'TestPlugin' ) ) {
 			// Create shorter reference to action
 			$action = $_REQUEST['action'];
 			
-			Grabpress::log ($action);
+			TestPlugin::log ($action);
 			
 			// Get page
 			$page = $_GET['page'];
@@ -74,7 +74,7 @@ if ( !class_exists ( 'TestPlugin' ) ) {
 		 * default caller debug info
 		 */
 		static function log ( $message = false ) {
-			// GrabPress debug flag is enabled
+			// TestPlugin debug flag is enabled
 			if ( TestPlugin::$debug ) {
 				// If no message provided
 				if ( !$message ) {
@@ -100,7 +100,7 @@ if ( !class_exists ( 'TestPlugin' ) ) {
 		 */
 		static function strip_deep ( &$data ) {
 			// If array, recursively strip slashes, else strip slashes
-			$data = is_array ( $data ) ? array_map ( array( 'GrabPress', 'strip_deep' ), $data ) : stripslashes ( $data );
+			$data = is_array ( $data ) ? array_map ( array( 'TestPlugin', 'strip_deep' ), $data ) : stripslashes ( $data );
 			return $data;
 		}		
 		
